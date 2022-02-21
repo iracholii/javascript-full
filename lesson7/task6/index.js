@@ -1,4 +1,4 @@
-function reverseArray(arr) {
+export function reverseArray(arr) {
   if (!Array.isArray(arr)) {
     return null;
   }
