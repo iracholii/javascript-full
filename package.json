@@ -1,7 +1,6 @@
 {
   "name": "javascript-full",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +15,18 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1"
-  }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iracholii/javascript-full.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iracholii/javascript-full/issues"
+  },
+  "homepage": "https://github.com/iracholii/javascript-full#readme",
+  "description": ""
 }
