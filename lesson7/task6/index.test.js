@@ -10,3 +10,8 @@ it('should get null if input is not array', () => {
   const result = reverseArray('text');
   expect(result).toEqual(null);
 });
+
+it('should get null if input is not array', () => {
+  const result = reverseArray(5);
+  expect(result).toEqual(null);
+});

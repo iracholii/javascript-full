@@ -5,9 +5,9 @@
  * Чтобы eslint не ругался на эту ошибку, для этой задачи он отключен аннотацией eslint-disable
  * */
 
-const getAdults = obj => {
+export const getAdults = obj => {
   const result = {};
-  for (let key in obj) {
+  for (const key in obj) {
     if (obj[key] >= 18) {
       result[key] = obj[key];
     }
