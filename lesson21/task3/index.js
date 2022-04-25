@@ -1,15 +1,15 @@
-export const getItemsList = className => {
-  const elementsList = document.querySelectorAll(`.${className}`);
+export const getItemsList = () => {
+  const elementsList = document.querySelectorAll('.technology');
   console.dir(elementsList);
   return elementsList;
 };
 
-getItemsList('technology');
+getItemsList();
 
-export const getItemsArray = className => {
-  const elementsArray = Array.from(document.querySelectorAll(`.${className}`));
+export const getItemsArray = () => {
+  const elementsArray = Array.from(document.querySelectorAll('.tool'));
   console.dir(elementsArray);
   return elementsArray;
 };
 
-getItemsArray('tool');
+getItemsArray();
