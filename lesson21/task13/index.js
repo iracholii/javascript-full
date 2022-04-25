@@ -1,4 +1,5 @@
 export const getSection = num => {
   const elem = document.querySelector(`span[data-number='${num}']`);
-  return elem.closest('.box');
+  const parent = elem.closest('.box');
+  return parent.dataset.section;
 };
