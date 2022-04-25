@@ -1,13 +1,13 @@
 export const getTitleElement = className => {
-  const titleElem = document.querySelector(`.${className}`);
+  const titleElem = document.querySelector(className);
   console.dir(titleElem);
   return titleElem;
 };
 
-getTitleElement('title');
+getTitleElement('.title');
 
-export const getInputElement = input => {
-  const inputElem = document.querySelector(`[type=${input}]`);
+export const getInputElement = type => {
+  const inputElem = document.querySelector(`input[type=${type}]`);
   console.dir(inputElem);
   return inputElem;
 };
