@@ -1,15 +1,15 @@
-export const getTitleElement = className => {
-  const titleElem = document.querySelector(className);
+export const getTitleElement = () => {
+  const titleElem = document.querySelector('.title');
   console.dir(titleElem);
   return titleElem;
 };
 
-getTitleElement('.title');
+getTitleElement();
 
-export const getInputElement = type => {
-  const inputElem = document.querySelector(`input[type=${type}]`);
+export const getInputElement = () => {
+  const inputElem = document.querySelector(`input[type=text]`);
   console.dir(inputElem);
   return inputElem;
 };
 
-getInputElement('text');
+getInputElement();
