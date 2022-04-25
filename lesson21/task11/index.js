@@ -13,5 +13,3 @@ export const manageClasses = () => {
     fourElem.classList.add('another-class');
   }
 };
-
-manageClasses();
