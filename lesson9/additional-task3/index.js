@@ -1,7 +1,37 @@
+// function compareObjects(obj1, obj2) {
+//   const keys1 = Object.keys(obj1);
+//   const keys2 = Object.keys(obj2);
+//   const values1 = Object.values(obj1);
+//   const values2 = Object.values(obj2);
+
+//   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+//     return false;
+//   }
+//   let result = 0;
+//   for (let i = 0; i < obj1.length; i += 1) {
+//     if (Object.is(obj1[i], obj2[i])) {
+//       result += 1;
+//     }
+//   }
+//   return result === obj1.length;
+// }
+
 function compareObjects(obj1, obj2) {
-  for (let i = 0; i < obj1.length; i += 1) {
-    return Object.entries(obj1[i]) === Object.entries(obj2[i]);
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+  const values1 = Object.values(obj1);
+  const values2 = Object.values(obj2);
+
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+    return false;
   }
+  let result = 0;
+  for (let i = 0; i < keys1.length; i += 1) {
+    if (keys1[i] === keys2[i]) {
+      result += 1;
+    }
+  }
+  return result === obj1.length;
 }
 
 // examples

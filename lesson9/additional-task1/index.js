@@ -16,19 +16,16 @@
 // }
 
 // function addPropertyV2(obj, key, value) {
-//   const newKey = { key: value };
-//   Object.assign(obj, newKey);
-//   return obj;
+//  return Object.assign(obj, { [key]: value });
+
 // }
 
 // function addPropertyV3(obj, key, value) {
-//   const newKey = { key: value };
-//   return Object.assign({}, obj, newKey);
+//   return Object.assign({}, obj, { [key]: value });
 // }
 
 // function addPropertyV4(obj, key, value) {
-//   const newKey = { key: value };
-//   return { ...obj, ...newKey };
+//   return { ...obj, [key]: value };
 // }
 
 // examples
@@ -39,3 +36,5 @@ const transaction = {
 // console.log(addPropertyV2(transaction, 'currency', 'USD')); // ==> { value: 170, currency: 'USD' }
 // console.log(addPropertyV3(transaction, 'currency', 'USD')); // ==> { value: 170, currency: 'USD' }
 // console.log(addPropertyV4(transaction, 'currency', 'USD')); // ==> { value: 170, currency: 'USD' }
+
+console.log(transaction);
