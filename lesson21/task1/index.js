@@ -10,7 +10,7 @@ export const tasks = [
  * @param {object[]} tasksList
  * @return {undefined}
  */
-const renderTasks = tasksList => {
+export const renderTasks = tasksList => {
   const listElement = document.querySelector('.list');
 
   const listItemsElems = tasksList.map(element => {
