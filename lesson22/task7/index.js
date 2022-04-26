@@ -1,9 +1,8 @@
 const buttons = document.querySelectorAll('.btn');
 const handleClick = () => {
-  const text = event.target.textContent;
-  console.log(text);
+  console.log(event.target.textContent);
 };
-[...buttons].map(button => {
+const buttonsArray = [...buttons];
+buttonsArray.map(button => {
   button.addEventListener('click', handleClick);
-  return button;
 });
