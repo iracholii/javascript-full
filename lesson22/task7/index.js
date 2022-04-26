@@ -5,4 +5,5 @@ const handleClick = () => {
 const buttonsArray = [...buttons];
 buttonsArray.map(button => {
   button.addEventListener('click', handleClick);
+  return button;
 });
