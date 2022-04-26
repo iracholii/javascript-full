@@ -1,5 +1,5 @@
 const buttons = document.querySelectorAll('.btn');
-const handleClick = () => {
+const handleClick = event => {
   console.log(event.target.textContent);
 };
 const buttonsArray = [...buttons];
