@@ -1,8 +1,8 @@
 const buttons = document.querySelectorAll('.btn');
+const handleClick = () => {
+  console.log(event.target.textContent);
+};
 [...buttons].map(button => {
-  const handleClick = () => {
-    console.log(event.target.textContent);
-  };
   button.addEventListener('click', handleClick);
   return button;
 });
