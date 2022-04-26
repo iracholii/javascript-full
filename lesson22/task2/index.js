@@ -1,15 +1,5 @@
-export const getTitleElement = () => {
-  const titleElem = document.querySelector('.title');
-  console.dir(titleElem);
-  return titleElem;
+const createButton = document.querySelector('.create-btn');
+const doneFunk = () => {
+  alert('done');
 };
-
-getTitleElement();
-
-export const getInputElement = () => {
-  const inputElem = document.querySelector(`input[type=text]`);
-  console.dir(inputElem);
-  return inputElem;
-};
-
-getInputElement();
+createButton.addEventListener('click', doneFunk);
