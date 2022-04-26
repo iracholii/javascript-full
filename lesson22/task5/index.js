@@ -1,9 +1,5 @@
-export const setTitle = text => {
-  const titleElem = document.querySelector('.title');
-  titleElem.textContent = text;
-};
-
-// console.dir(document.querySelector('.title').textContent);
-// const test = 'test';
-// setTitle(test);
-// console.dir(document.querySelector('.title').textContent);
+const searchButton = document.querySelector('.search__btn');
+const searchInput = document.querySelector('.search__input');
+searchButton.addEventListener('click', () => {
+  console.log(searchInput.value);
+});
