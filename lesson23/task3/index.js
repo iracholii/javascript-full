@@ -48,8 +48,8 @@ renderTasks(tasks);
 
 // algo
 // 1. add id for checkboxes
-// 2. if checkbox clicked - change its status in tasks array
-// + 3. if Create button clicked - get text from input (.task-input),
+// 2. if checkbox clicked - change its status
+// 3. if Create button clicked - get text from input (.task-input),
 // add it to the tasks array and clear the (.task-input) field
 // 4. renew to-do list
 
