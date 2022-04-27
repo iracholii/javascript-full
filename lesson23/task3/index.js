@@ -19,6 +19,17 @@ const renderTasks = tasksList => {
 
       checkbox.checked = done;
 
+      const onChangeHandler = event => {
+        // const checkboxId = event.target.dataset.id;
+        if (event.target.checked) {
+          event.target.closest('.list__item').classList.add('list__item_done');
+        }
+        if (!event.target.checked) {
+          event.target.closest('.list__item').classList.remove('list__item_done');
+        }
+      };
+      checkbox.addEventListener('change', onChangeHandler);
+
       checkbox.classList.add('list__item-checkbox');
       if (done) {
         listItemElem.classList.add('list__item_done');
@@ -57,26 +68,24 @@ const onCreateClickHandler = () => {
 
 createButtonElem.addEventListener('click', onCreateClickHandler);
 
-const listItemCheckboxArr = [...document.querySelectorAll('.list__item-checkbox')];
+// const listItemCheckboxArr = [...document.querySelectorAll('.list__item-checkbox')];
 
 const idGenerator = () => {
   const id = Math.random().toString().slice(2, 10);
   return id;
 };
 
-listItemCheckboxArr.map(checkbox => {
-  checkbox.setAttribute('data-id', idGenerator());
+// listItemCheckboxArr.map(checkbox => {
+//   checkbox.setAttribute('data-id', idGenerator());
 
-  const onChangeHandler = event => {
-    // const checkboxId = event.target.dataset.id;
-    if (event.target.checked) {
-      event.target.classList.add('list__item_done');
-      event.target.closest('.list__item').classList.add('list__item_done');
-    }
-    if (!event.target.checked) {
-      event.target.classList.remove('list__item_done');
-      event.target.closest('.list__item').classList.remove('list__item_done');
-    }
-  };
-  checkbox.addEventListener('change', onChangeHandler);
-});
+//   const onChangeHandler = event => {
+//     // const checkboxId = event.target.dataset.id;
+//     if (event.target.checked) {
+//       event.target.closest('.list__item').classList.add('list__item_done');
+//     }
+//     if (!event.target.checked) {
+//       event.target.closest('.list__item').classList.remove('list__item_done');
+//     }
+//   };
+//   checkbox.addEventListener('change', onChangeHandler);
+// });
