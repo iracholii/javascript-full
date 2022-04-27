@@ -34,7 +34,6 @@ const renderTasks = tasksList => {
         if (!event.target.checked) {
           event.target.closest('.list__item').classList.remove('list__item_done');
           element.done = false;
-          console.log(tasksList);
         }
       };
       checkbox.addEventListener('change', onChangeHandler);
