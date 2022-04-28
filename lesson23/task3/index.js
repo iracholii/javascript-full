@@ -1,17 +1,14 @@
-const tasks = [
-  { text: 'Buy milk', done: false },
-  { text: 'Pick up Tom from airport', done: false },
-  { text: 'Visit party', done: false },
-  { text: 'Visit doctor', done: true },
-  { text: 'Buy meat', done: true },
-];
+const idGenerator = () => {
+  return Math.random().toString().slice(2, 10);
+};
 
-// algo
-// 1. add id for checkboxes
-// 2. if checkbox clicked - change its status
-// 3. if Create button clicked - get text from input (.task-input),
-// add it to the tasks array and clear the (.task-input) field
-// 4. renew to-do list
+const tasks = [
+  { text: 'Buy milk', done: false, id: idGenerator() },
+  { text: 'Pick up Tom from airport', done: false, id: idGenerator() },
+  { text: 'Visit party', done: false, id: idGenerator() },
+  { text: 'Visit doctor', done: true, id: idGenerator() },
+  { text: 'Buy meat', done: true, id: idGenerator() },
+];
 
 const listElem = document.querySelector('.list');
 
@@ -29,12 +26,9 @@ const renderTasks = tasksList => {
         listItemElem.classList.add('list__item_done');
       }
 
-      // ///
-      // const idGenerator = () => {
-      //   return Math.random().toString().slice(2, 10);
-      // };
-      // checkbox.setAttribute('data-id', idGenerator());
-      // ///
+      ///
+      checkbox.dataset.id = element.id;
+      ///
 
       listItemElem.append(checkbox, element.text);
 
@@ -42,34 +36,47 @@ const renderTasks = tasksList => {
     });
 
   listElem.append(...tasksElems);
-
-  // ///
-  // const createButtonElem = document.querySelector('.create-task-btn');
-
-  // const onCreateClickHandler = () => {
-  //   const taskElem = document.querySelector('.task-input');
-  //   if (!taskElem.value) {
-  //     return;
-  //   }
-  //   tasksList.push({ text: taskElem.value, done: false });
-  //   listElem.innerHTML = '';
-  //   renderTasks(tasksList);
-  //   taskElem.value = null;
-  // };
-
-  // createButtonElem.addEventListener('click', onCreateClickHandler);
-  // ///
-
-  // ///
-  // const listChangeHandler = event => {
-  //   const checkboxId = event.target.dataset.id;
-  //   const checkboxToChange = document.querySelector(`input[data-id="${checkboxId}"]`);
-  //   const closestItem = event.target.closest('.list__item');
-  //   closestItem.classList.toggle('list__item_done');
-  // };
-
-  // listElem.addEventListener('change', listChangeHandler);
-  // ///
 };
 
 renderTasks(tasks);
+
+///
+const listChangeHandler = event => {
+  const checkboxId = event.target.dataset.id;
+
+  if (tasks.find(task => task.id === checkboxId).done) {
+    tasks.find(task => task.id === checkboxId).done = false;
+  } else {
+    tasks.find(task => task.id === checkboxId).done = true;
+  }
+
+  listElem.innerHTML = '';
+  renderTasks(tasks);
+};
+
+listElem.addEventListener('change', listChangeHandler);
+///
+
+///
+const createButtonElem = document.querySelector('.create-task-btn');
+
+const onCreateClickHandler = () => {
+  const taskElem = document.querySelector('.task-input');
+  if (!taskElem.value) {
+    return;
+  }
+  tasks.push({ text: taskElem.value, done: false, id: idGenerator() });
+  listElem.innerHTML = '';
+  renderTasks(tasks);
+  taskElem.value = null;
+};
+
+createButtonElem.addEventListener('click', onCreateClickHandler);
+///
+
+// algo
+// 1. add id for checkboxes
+// 2. if checkbox clicked - change its status
+// 3. if Create button clicked - get text from input (.task-input),
+// add it to the tasks array and clear the (.task-input) field
+// 4. renew to-do list
