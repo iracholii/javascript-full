@@ -6,6 +6,13 @@ const tasks = [
   { text: 'Buy meat', done: true },
 ];
 
+// algo
+// 1. add id for checkboxes
+// 2. if checkbox clicked - change its status
+// 3. if Create button clicked - get text from input (.task-input),
+// add it to the tasks array and clear the (.task-input) field
+// 4. renew to-do list
+
 const listElem = document.querySelector('.list');
 
 const renderTasks = tasksList => {
@@ -17,38 +24,18 @@ const renderTasks = tasksList => {
       const checkbox = document.createElement('input');
       checkbox.setAttribute('type', 'checkbox');
       checkbox.checked = element.done;
-
-      ///
-
-      const idGenerator = () => {
-        const id = Math.random().toString().slice(2, 10);
-        return id;
-      };
-      checkbox.setAttribute('data-id', idGenerator());
-
-      const onChangeHandler = event => {
-        const checkboxId = event.target.dataset.id;
-        if (event.target.checked) {
-          // event.target.closest('.list__item').classList.add('list__item_done');
-          element.done = true;
-          listElem.innerHTML = '';
-          renderTasks(tasksList);
-        }
-        if (!event.target.checked) {
-          // event.target.closest('.list__item').classList.remove('list__item_done');
-          element.done = false;
-          listElem.innerHTML = '';
-          renderTasks(tasksList);
-        }
-      };
-      checkbox.addEventListener('change', onChangeHandler);
-
-      ///
-
       checkbox.classList.add('list__item-checkbox');
       if (element.done) {
         listItemElem.classList.add('list__item_done');
       }
+
+      // ///
+      // const idGenerator = () => {
+      //   return Math.random().toString().slice(2, 10);
+      // };
+      // checkbox.setAttribute('data-id', idGenerator());
+      // ///
+
       listItemElem.append(checkbox, element.text);
 
       return listItemElem;
@@ -56,32 +43,33 @@ const renderTasks = tasksList => {
 
   listElem.append(...tasksElems);
 
-  ///
+  // ///
+  // const createButtonElem = document.querySelector('.create-task-btn');
 
-  const createButtonElem = document.querySelector('.create-task-btn');
+  // const onCreateClickHandler = () => {
+  //   const taskElem = document.querySelector('.task-input');
+  //   if (!taskElem.value) {
+  //     return;
+  //   }
+  //   tasksList.push({ text: taskElem.value, done: false });
+  //   listElem.innerHTML = '';
+  //   renderTasks(tasksList);
+  //   taskElem.value = null;
+  // };
 
-  const onCreateClickHandler = () => {
-    const taskElem = document.querySelector('.task-input');
-    if (!taskElem.value) {
-      return;
-    }
-    tasksList.push({ text: taskElem.value, done: false });
-    listElem.innerHTML = '';
-    renderTasks(tasksList);
-    taskElem.value = null;
-  };
+  // createButtonElem.addEventListener('click', onCreateClickHandler);
+  // ///
 
-  createButtonElem.addEventListener('click', onCreateClickHandler);
-  ///
+  // ///
+  // const listChangeHandler = event => {
+  //   const checkboxId = event.target.dataset.id;
+  //   const checkboxToChange = document.querySelector(`input[data-id="${checkboxId}"]`);
+  //   const closestItem = event.target.closest('.list__item');
+  //   closestItem.classList.toggle('list__item_done');
+  // };
+
+  // listElem.addEventListener('change', listChangeHandler);
+  // ///
 };
 
 renderTasks(tasks);
-
-// put your code here
-
-// algo
-// 1. add id for checkboxes
-// 2. if checkbox clicked - change its status
-// 3. if Create button clicked - get text from input (.task-input),
-// add it to the tasks array and clear the (.task-input) field
-// 4. renew to-do list
