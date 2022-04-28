@@ -25,15 +25,20 @@ const renderTasks = tasksList => {
         return id;
       };
       checkbox.setAttribute('data-id', idGenerator());
+
       const onChangeHandler = event => {
         const checkboxId = event.target.dataset.id;
         if (event.target.checked) {
-          event.target.closest('.list__item').classList.add('list__item_done');
+          // event.target.closest('.list__item').classList.add('list__item_done');
           element.done = true;
+          listElem.innerHTML = '';
+          renderTasks(tasksList);
         }
         if (!event.target.checked) {
-          event.target.closest('.list__item').classList.remove('list__item_done');
+          // event.target.closest('.list__item').classList.remove('list__item_done');
           element.done = false;
+          listElem.innerHTML = '';
+          renderTasks(tasksList);
         }
       };
       checkbox.addEventListener('change', onChangeHandler);
