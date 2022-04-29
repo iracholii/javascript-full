@@ -27,7 +27,7 @@ const renderTasks = tasksList => {
       }
 
       ///
-      checkbox.dataset.id = element.id;
+      checkbox.setAttribute('data-id', `${element.id}`);
       ///
 
       listItemElem.append(checkbox, element.text);
@@ -42,19 +42,30 @@ renderTasks(tasks);
 
 ///
 const listChangeHandler = event => {
-  const checkboxId = event.target.dataset.id;
+  let checkboxId;
 
-  if (tasks.find(task => task.id === checkboxId).done) {
-    tasks.find(task => task.id === checkboxId).done = false;
+  if (event.target.classList.contains('list__item-checkbox')) {
+    checkboxId = event.target.dataset.id;
+  }
+
+  if (event.target.classList.contains('list__item')) {
+    // const checkbox = event.target.children[0];
+    const checkbox = event.target.querySelector('.list__item-checkbox');
+    checkboxId = checkbox.dataset.id;
+  }
+
+  const task = tasks.find(task => task.id === checkboxId);
+  if (task.done) {
+    task.done = false;
   } else {
-    tasks.find(task => task.id === checkboxId).done = true;
+    task.done = true;
   }
 
   listElem.innerHTML = '';
   renderTasks(tasks);
 };
 
-listElem.addEventListener('change', listChangeHandler);
+listElem.addEventListener('click', listChangeHandler);
 ///
 
 ///
