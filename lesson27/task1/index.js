@@ -1,13 +1,31 @@
-export const getLocalStorageData = () => {
-  return Object.entries(localStorage).reduce((acc, [key, value]) => {
-    return { ...acc, [key]: JSON.parse(value) };
-  }, {});
-};
+// export const getLocalStorageData = () =>
+//   Object.entries(localStorage).reduce((acc, [key, value]) => {
+//     let newValue;
+//     try {
+//       newValue = JSON.parse(value);
+//     } catch (error) {
+//       newValue = value;
+//     }
+//     return { ...acc, [key]: newValue };
+//   }, {});
 
-localStorage.setItem('sting', JSON.stringify('string'));
-localStorage.setItem('number', JSON.stringify(25));
+export const getLocalStorageData = () =>
+  Object.entries(localStorage).reduce((acc, [key, value]) => {
+    let newValue;
+    try {
+      newValue = JSON.parse(value);
+    } catch (error) {
+      newValue = value;
+    }
+
+    acc[key] = newValue;
+    return acc;
+  }, {});
+
+localStorage.setItem('sting', 'string');
+localStorage.setItem('number', 25);
 localStorage.setItem('array', JSON.stringify([1, 's', 2]));
-localStorage.setItem('boolean', JSON.stringify(true));
+localStorage.setItem('boolean', true);
 localStorage.setItem('object', JSON.stringify({ a: 'g', o: '2' }));
 
-getLocalStorageData();
+console.log(getLocalStorageData());
