@@ -7,9 +7,12 @@ export const addImage = imgSrc => {
     const containerElem = document.querySelector('.page');
     containerElem.append(imgElem);
 
-    const { width, height } = imgElem;
+    const onImageLoaded = () => {
+      const { width, height } = imgElem;
+      resolve({ width, height });
+    };
 
-    imgElem.addEventListener('load', () => resolve({ width, height }));
+    imgElem.addEventListener('load', onImageLoaded);
     imgElem.addEventListener('error', () => reject(new Error('Image load is failed...')));
   });
 
