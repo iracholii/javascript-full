@@ -16,14 +16,16 @@ export const addImage = imgSrc => {
   return p;
 };
 
-const res = addImage(
+const result = addImage(
   'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg',
 );
 
-// console.log(res);
-// res.then(data => console.log(data));
+// console.log(result);
+// result.then(data => console.log(data));
 
-res.then(data => {
+result.catch(error => console.log(error));
+
+result.then(data => {
   const sizeElem = document.querySelector('.image-size');
   sizeElem.textContent = `${data.width} x ${data.height}`;
 });
