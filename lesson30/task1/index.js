@@ -19,12 +19,13 @@ export const addImage = imgSrc => {
   return p;
 };
 
-const result = addImage(
-  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg',
-);
+const imgSrc =
+  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg';
 
-// console.log(result);
-// result.then(data => console.log(data));
+const result = addImage(imgSrc);
+
+console.log(result);
+result.then(data => console.log(data));
 
 result.catch(error => console.log(error));
 
