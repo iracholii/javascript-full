@@ -8,7 +8,8 @@ export const addImage = (url, callback) => {
 
   const onImageLoaded = () => {
     const { width, height } = img;
-    callback(null, { width, height });
+    // console.dir(img);
+    callback({ width, height });
   };
 
   const onImageLoadError = () => callback('Image load failed');
