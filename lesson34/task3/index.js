@@ -44,5 +44,10 @@ const onSubmitButtonHandler = event => {
     });
 };
 
-loginFormElem.addEventListener('submit', onSubmitButtonHandler);
 loginFormElem.addEventListener('change', formValidation);
+loginFormElem.addEventListener('submit', onSubmitButtonHandler);
+
+// 1. check if form is valid, if it is change the button status to enabled
+// 2. get data from email, name and password inputs
+// 3. save this data on server and get the response (alert) as an object with that data
+// 4. clear inputs and set the submit button status to disabled
