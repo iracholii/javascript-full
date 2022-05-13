@@ -44,7 +44,7 @@ const onSubmitButtonHandler = event => {
     });
 };
 
-loginFormElem.addEventListener('change', formValidation);
+loginFormElem.addEventListener('input', formValidation);
 loginFormElem.addEventListener('submit', onSubmitButtonHandler);
 
 // 1. check if form is valid, if it is change the button status to enabled
