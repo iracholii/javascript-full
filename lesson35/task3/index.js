@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 
-import { renderUserData, renderRepos, clearList } from './render.js';
-import { fetchUserData, fetchRepositories } from './requests.js';
-import { showSpinner, hideSpinner } from './spinner.js';
+import { renderUserData, renderRepos, clearList } from './script/render.js';
+import { fetchUserData, fetchRepositories } from './script/requests.js';
+import { showSpinner, hideSpinner } from './script/spinner.js';
 
 const defaultUser = {
   avatar_url: 'https:avatars3.githubusercontent.com/u10001',
