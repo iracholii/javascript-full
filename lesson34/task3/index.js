@@ -7,6 +7,50 @@ const passwordInputElem = document.querySelector('input[type="password"]');
 const loginFormElem = document.querySelector('.login-form');
 const submitButtonElem = document.querySelector('.submit-button');
 
+/// vol 1
+
+// const formValidation = () => {
+//   if (loginFormElem.reportValidity()) {
+//     submitButtonElem.disabled = false;
+//   }
+// };
+
+// const createUser = userData =>
+//   fetch(baseUrl, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json;charset=utf-8',
+//     },
+//     body: JSON.stringify(userData),
+//   });
+
+// const onSubmitButtonHandler = event => {
+//   event.preventDefault();
+
+//   const userData = {
+//     email: emailInputElem.value,
+//     name: userNameInputElem.value,
+//     password: passwordInputElem.value,
+//   };
+
+//   createUser(userData)
+//     .then(response => response.json())
+//     .then(userData => {
+//       alert(JSON.stringify(userData));
+
+//       emailInputElem.value = '';
+//       userNameInputElem.value = '';
+//       passwordInputElem.value = '';
+
+//       submitButtonElem.disabled = true;
+//     });
+// };
+
+// loginFormElem.addEventListener('input', formValidation);
+// loginFormElem.addEventListener('submit', onSubmitButtonHandler);
+
+/// vol 2
+
 const formValidation = () => {
   if (loginFormElem.reportValidity()) {
     submitButtonElem.disabled = false;
@@ -22,30 +66,24 @@ const createUser = userData =>
     body: JSON.stringify(userData),
   });
 
-const onSubmitButtonHandler = event => {
+const submitData = event => {
   event.preventDefault();
 
-  const userData = {
-    email: emailInputElem.value,
-    name: userNameInputElem.value,
-    password: passwordInputElem.value,
-  };
+  const userData = Object.fromEntries(new FormData(loginFormElem));
 
   createUser(userData)
     .then(response => response.json())
     .then(userData => {
       alert(JSON.stringify(userData));
 
-      emailInputElem.value = '';
-      userNameInputElem.value = '';
-      passwordInputElem.value = '';
+      loginFormElem.reset();
 
       submitButtonElem.disabled = true;
     });
 };
 
 loginFormElem.addEventListener('input', formValidation);
-loginFormElem.addEventListener('submit', onSubmitButtonHandler);
+loginFormElem.addEventListener('submit', submitData);
 
 // 1. check if form is valid, if it is change the button status to enabled
 // 2. get data from email, name and password inputs
