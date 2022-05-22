@@ -19,15 +19,16 @@
 
 // V2
 const getCustomersList = obj => {
-  // const objCopy = JSON.parse(JSON.stringify(obj));
   const objCopy = structuredClone(obj);
-  const customersArr = Object.values(objCopy).map((el, index) => {
-    // eslint-disable-next-line no-param-reassign
-    el.id = Object.keys(objCopy)[index];
-    return el;
-  });
-  console.log(obj);
-  return customersArr.sort((a, b) => a.age - b.age);
+
+  const customersArr = Object.values(objCopy)
+    .map((el, index) => {
+      el.id = Object.keys(objCopy)[index];
+      return el;
+    })
+    .sort((a, b) => a.age - b.age);
+
+  return customersArr;
 };
 
 // example
@@ -47,4 +48,7 @@ const customers = {
   },
 };
 
+const customers2 = {};
+
 console.log(getCustomersList(customers));
+console.log(getCustomersList(customers2));

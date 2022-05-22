@@ -20,9 +20,19 @@ import { addImage } from './addImage.js';
 //   return promise;
 // };
 
+// export const addImageV2 = url => {
+//   const promise = new Promise((resolve, reject) => {
+//     addImage(url, resolve);
+//   });
+//   return promise;
+// };
+
 export const addImageV2 = url => {
   const promise = new Promise((resolve, reject) => {
-    addImage(url, resolve);
+    addImage(url, (error, load) => {
+      if (error) reject(error);
+      else resolve(load);
+    });
   });
   return promise;
 };

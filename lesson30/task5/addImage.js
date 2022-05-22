@@ -9,12 +9,10 @@ export const addImage = (url, callback) => {
   const onImageLoaded = () => {
     const { width, height } = img;
     // console.dir(img);
-    callback({ width, height });
+    callback(null, { width, height });
   };
 
   const onImageLoadError = () => callback('Image load failed');
-
   img.addEventListener('load', onImageLoaded);
-
   img.addEventListener('error', onImageLoadError);
 };
